@@ -85,9 +85,8 @@
   right: 10px;
   width: 25px;
   height: 25px;
-  border-color: var(--accent-color);
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
 }
 
 .decorated-zone::after {
@@ -97,9 +96,8 @@
   left: 10px;
   width: 25px;
   height: 25px;
-  border-color: var(--accent-color);
-  border-bottom: 1px solid;
-  border-left: 1px solid;
+  border-bottom: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
 }
 
 .header__title {
