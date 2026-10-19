@@ -1,5 +1,358 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr max-content 1fr;
+  height: 100vh;
+  min-height: 668px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.header__theme-menu-button {
+  min-height: 26px;
+  padding: 2px 13px 3px 13px;
+  color: var(--accent-color);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--theme-menu-focus-outline-color);
+  outline: none;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--hover-border-color);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--section-title-text);
+  pointer-events: none;
+}
+
+.header__decor {
+  position: absolute;
+  top: 10px;
+  right: 19px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-color);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header__decor::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border-color: var(--accent-color);
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-color: var(--accent-color);
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.header__title {
+  align-self: end;
+  color: var(--color-logo);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__title-text {
+  align-self: center;
+  width: fit-content;
+  font-weight: 700;
+  transform: translateY(-5px);
+}
+
+.title-decor {
+  color: var(--card-title-text);
+  background-color: var(--accent-color);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.section__title {
+  color: var(--section-title-text);
+  font-weight: 700;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.card__title {
+  font-weight: 700;
+}
+
+.card__text {
+  color: var(--card-text);
+}
+
+.card__title.title-text-size {
+  font-weight: 400;
+}
+
+.card__text-link {
+  text-shadow: 2px 1px 0 var(--accent-color);
+}
+
+.card__text-link:hover {
+  border-bottom: 1px solid var(--link-hover-underline-color);
+}
+
+.card__text-link:focus-visible {
+  outline: 1px solid var(--link-focus-border-color);
+}
+
+.gallery-container {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.gallery-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 647px;
+}
+
+.footer__logo {
+  color: var(--color-logo);
+  font-weight: 700;
+  font-size: 116px;
+  text-shadow: 2px 2px var(--accent-color);
+}
+
+@media (min-width: 768px) {
+  .page {
+    gap: 60px;
+  }
+
+  .header {
+    padding-right: 20px;
+    padding-left: 0;
+  }
+
+  .header__decor {
+    top: 20px;
+    right: 30px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .header__theme-menu-list {
+    padding-top: 18px;
+  }
+
+  .header__title-text {
+    justify-self: end;
+    width: calc(100% - 384px);
+    transform: translateY(-10px);
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .main {
+    gap: 80px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .reasons-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+  }
+
+  .section__title {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    max-width: 236px;
+  }
+
+  .advice-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .gallery-section {
+    gap: 20px;
+  }
+
+  .gallery-image:nth-of-type(1) {
+    grid-area: img1;
+  }
+
+  .gallery-image:nth-of-type(2) {
+    grid-area: img2;
+  }
+
+  .gallery-image:nth-of-type(3) {
+    grid-area: img3;
+  }
+
+  .gallery-image:nth-of-type(4) {
+    grid-area: img4;
+  }
+
+  .gallery-image:nth-of-type(5) {
+    grid-area: img5;
+  }
+
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "img1  img1  img2"
+      "img3  img4  img2"
+      "img3  img5  img5";
+    gap: 20px;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer__logo {
+    font-size: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__title {
+    font-size: 157px;
+  }
+
+  .header__title-text {
+    justify-self: end;
+    width: calc(100% - 513px);
+  }
+
+  .section__title {
+    max-width: 315px;
+  }
+
+  .reasons-section,
+  .advice-section {
+    column-gap: 10px;
+  }
+
+  .factors-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .factors-section .section__title {
+    grid-column: span 3;
+  }
+
+  .card {
+    align-content: start;
+  }
+
+  .footer__logo {
+    font-size: 157px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    padding-top: 0px;
+    padding-right: 0px;
+  }
 }
