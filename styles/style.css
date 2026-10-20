@@ -198,7 +198,7 @@
 .footer__logo {
   color: var(--color-logo);
   font-weight: 700;
-  font-size: 116px;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   text-shadow: 2px 2px var(--accent-color);
 }
 
@@ -210,6 +210,10 @@
   .header {
     padding-right: 20px;
     padding-left: 0;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__decor {
@@ -302,15 +306,11 @@
   }
 
   .footer__logo {
-    font-size: 120px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
 
 @media (min-width: 1024px) {
-  .header__title {
-    font-size: 157px;
-  }
-
   .header__title-text {
     justify-self: end;
     width: calc(100% - 513px);
@@ -335,10 +335,6 @@
 
   .card {
     align-content: start;
-  }
-
-  .footer__logo {
-    font-size: 157px;
   }
 
   .header__theme-menu {
